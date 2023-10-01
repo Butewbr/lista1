@@ -1,0 +1,174 @@
+\documentclass[a4paper,12pt]{article}
+
+% template by Bernardo Pandolfi Costa
+
+\usepackage{graphicx}
+\usepackage[
+top=3cm,
+bottom=2cm,
+left=3cm,
+right=2cm,
+]{geometry}
+\usepackage{pdfpages}
+\usepackage{hyperref}
+\usepackage{indentfirst}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{textcomp}
+\usepackage[portuguese]{babel}
+\usepackage[section]{placeins}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{fancyhdr}
+\usepackage{lipsum}
+% Turn on the style
+\pagestyle{fancy}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{steinmetz}
+\fancyfoot{}
+
+\fancyfoot[R]{\thepage}
+\setlength{\headheight}{16pt}% ...at least 51.60004pt
+
+\definecolor{codegreen}{rgb}{0.48,0.7,0.42}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.5,0,0.82}
+\definecolor{codeblue}{rgb}{0.5, 0.64, 0.74}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.95}
+
+\lstdefinestyle{codestyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegray},
+    keywordstyle=\color{codepurple},
+    numberstyle=\tiny\color{codeblue},
+    stringstyle=\color{codegreen},
+   	breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2,
+    basicstyle=\ttfamily
+}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\lstset{
+inputencoding=utf8,
+upquote=true,
+style=codestyle,
+    literate=%
+    {á}{{\'a}}1
+    {à}{{\`a}}1
+    {ã}{{\~a}}1
+    {â}{{\^a}}1
+    {é}{{\'e}}1
+    {ê}{{\^e}}1
+    {í}{{\'i}}1
+    {ó}{{\'o}}1
+    {õ}{{\~o}}1
+    {ô}{{\^o}}1
+    {ú}{{\'u}}1
+    {ü}{{\"u}}1
+    {ç}{{\c{c}}}1
+    {Á}{{\'A}}1
+    {À}{{\`A}}1
+    {Ã}{{\~A}}1
+    {Â}{{\^A}}1
+    {É}{{\'E}}1
+    {Ê}{{\^E}}1
+    {Í}{{\'I}}1
+    {Ó}{{\'O}}1
+    {Õ}{{\~O}}1
+    {Ô}{{\^O}}1
+    {Ú}{{\'U}}1
+    {Ü}{{\"U}}1
+    {Ç}{{\c{C}}}1
+}
+
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=blue
+}
+
+\author{Bernardo Pandolfi Costa}
+\title{Lista de Exercícios 1}
+
+\renewcommand{\contentsname}{Sumário}
+\renewcommand{\figurename}{Figura}
+
+
+\begin{document}
+\makeatletter
+\begin{titlepage}
+    \begin{center}
+    \includegraphics[width=64px]{./assets/vertical_sigla_fundo_claro.png}\\
+        \small
+        \vspace{0.25cm}
+        \textbf{UNIVERSIDADE FEDERAL DE SANTA CATARINA}\\
+		\textbf{CENTRO DE CIÊNCIAS, TECNOLOGIAS E SAÚDE}\\
+		\textbf{DEPARTAMENTO DE COMPUTAÇÃO}\\
+		\textbf{CURSO DE ENGENHARIA DE COMPUTAÇÃO}\\
+        \vspace{7cm}
+        \Large
+        \textbf{\@title}\\
+        \vspace{0.5cm}
+        \normalsize
+        \textbf{\@author}\\
+        \vspace{1.5cm}
+        \small
+        Disciplina: Sistemas Operacionais\\
+        Professor: Roberto Rodrigues Filho
+        \vfill
+        Araranguá\\
+        \today
+    \end{center}
+\end{titlepage}
+\makeatother
+
+\tableofcontents
+\newpage
+
+\section{Exercício 1}
+O programa pede ao usuário um comando a ser executado e depois o executa.\\
+Exemplos: 
+\begin{itemize}
+\item ls .
+\item ls . -l
+\item touch . hello
+\end{itemize}
+
+\section{Exercício 2}
+Para cada processo, o $A$ manteve um valor diferente. Quando $A$ é colocado em cada processo, ele entra com o valor não alterado, neste caso, $A = 1$. Como cada processo é isolado, a alteração feita no processo filho não é carregada ao processo pai, de forma que a variável $A$ terá um valor diferente em cada processo, baseado na alteração de cada um.\\
+No código, foi programado que o processo filho executa uma multiplicação de $10$ em $A$, enquanto o processo pai multiplicará $A$ por $-10$, para que a mudança seja mais perceptível. Assim, no processo filho o resultado final de $A$ foi de $10$ e o do processo pai foi de $-10$.
+
+\section{Exercício 3}
+Cada \textit{thread} executa ao mesmo tempo, mas seus valores são compartilhados, visto que a variável $A$ é global. Então as alterações que são feitas em cada \textit{thread} executa sua função independentemente das outras, mas os resultados são compartilhados.\\
+Neste código, foi programado que a \textit{thread} principal (dentro do main) multiplica $A$ por $10$ e a \textit{thread} secundária multiplicará por $-10$, de forma similar ao exemplo anterior. Para facilitar a visualização, foi adicionado um atraso na multiplicação de $-10$ para que seja perceptível que a multiplicação de $-10$ na \textit{thread} secundária é feita \textbf{após} a multiplicação da \textit{thread} principal, apesar de ocorrerem independentemente.
+
+\section{Exercício 4}
+No código, através das bibliotecas \textit{BeautifulSoup} e \textit{requests}, foi possível acessar os conteúdos de uma página na web sem a necessidade de salvá-la na máquina. Assim, o programa se conecta ao \textit{url} pedido, consegue o corpo do HTML e busca a quantidade de aparições da palavra especificada e retorna o valor ao terminal.
+
+\section{Exercício 5}
+De forma similar ao exercício anterior, as bibliotecas \textit{BeautifulSoup} e \textit{requests} foram utilizadas. Neste caso, a \textit{String} que contém os conteúdos da página é divida em três partes de tamanhos iguais e, na criação das \textit{threads}, cada uma recebe uma parte da \textit{String}. Assim, cada \textit{thread} buscará a quantidade de vezes que a palavra aparece em sua respectiva seção do HTML, somando as aparições concomitantemente à mesma variável.
+
+\section{Exercício 6}
+O código busca o conteúdo do body da página e o coloca em uma grande \textit{String}, chamada de \textit{body\_text} no código.
+Em seguida, a variável \textit{body\_text} é divida em três outras de tamanhos iguais, para que cada pedaço seja colocado em uma \textit{thread} específica. Antes das \textit{threads} serem criadas, uma variável que carrega o momento de início da operação \textit{multithread} é instanciada pelo método \textit{time()}. 
+Ao fim do processo, outra variável que indica o momento em que a operação chega ao fim é criada. O resultado de tempo $\Delta t$, então, equivale à subtração do tempo final menos o tempo inicial, que é mostrado no terminal.\\
+Ao fim do processo \textit{multithread}, a operação é repetida, mas desta vez, com apenas uma \textit{thread}. Os resultados indicam, então, que o programa em \textit{monothread} é de $3$ a $4$ vezes mais rápido que o código em \textit{multithread}.
+Existem alguns possíveis motivos para este resultado. Como instanciar e gerenciais \textit{threads} demanda tempo e poder computacional, quando estamos lidando com tarefas simples, como contar as ocorrências de uma palavra, pode ser que a estratégia não compense.\\
+Outra explicação ao ocorrido se deve a como códigos em Python são interpretados pelo GIL (Global Interpreter Lock) em CPython. Este interpretador executa o código em apenas um processo e faz com que os \textit{threads} do código não sejam verdadeiramente paralelos como teoricamente devem ser.
+
+\end{document}
