@@ -145,12 +145,12 @@ O programa pede ao usuário um comando a ser executado e depois o executa.\\
 Exemplos: 
 \begin{itemize}
 \item ls .
-\item ls . -l
+\item ls . -la
 \item touch . hello
 \end{itemize}
 
 \section{Exercício 2}
-Para cada processo, o $A$ manteve um valor diferente. Quando $A$ é colocado em cada processo, ele entra com o valor não alterado, neste caso, $A = 1$. Como cada processo é isolado, a alteração feita no processo filho não é carregada ao processo pai, de forma que a variável $A$ terá um valor diferente em cada processo, baseado na alteração de cada um.\\
+Para cada processo, o $A$ manteve um valor diferente. Quando $A$ é colocado em cada processo, a variável global é copiada com valor não alterado, neste caso, $A = 1$. Como cada processo é isolado, a alteração feita no processo filho não é carregada ao processo pai, de forma que a variável $A$ terá um valor diferente em cada processo, baseado na alteração de cada um.\\
 No código, foi programado que o processo filho executa uma multiplicação de $10$ em $A$, enquanto o processo pai multiplicará $A$ por $-10$, para que a mudança seja mais perceptível. Assim, no processo filho o resultado final de $A$ foi de $10$ e o do processo pai foi de $-10$.
 
 \section{Exercício 3}
@@ -169,6 +169,6 @@ Em seguida, a variável \textit{body\_text} é divida em três outras de tamanho
 Ao fim do processo, outra variável que indica o momento em que a operação chega ao fim é criada. O resultado de tempo $\Delta t$, então, equivale à subtração do tempo final menos o tempo inicial, que é mostrado no terminal.\\
 Ao fim do processo \textit{multithread}, a operação é repetida, mas desta vez, com apenas uma \textit{thread}. Os resultados indicam, então, que o programa em \textit{monothread} é de $3$ a $4$ vezes mais rápido que o código em \textit{multithread}.
 Existem alguns possíveis motivos para este resultado. Como instanciar e gerenciais \textit{threads} demanda tempo e poder computacional, quando estamos lidando com tarefas simples, como contar as ocorrências de uma palavra, pode ser que a estratégia não compense.\\
-Outra explicação ao ocorrido se deve a como códigos em Python são interpretados pelo GIL (Global Interpreter Lock) em CPython. Este interpretador executa o código em apenas um processo e faz com que os \textit{threads} do código não sejam verdadeiramente paralelos como teoricamente devem ser.
+Outra explicação ao ocorrido se deve a como códigos em Python são interpretados pelo GIL (Global Interpreter Lock) em CPython. Este interpretador executa o código em apenas um processo e faz com que os \textit{threads} do código não sejam verdadeiramente paralelos como teoricamente deveriam.
 
 \end{document}

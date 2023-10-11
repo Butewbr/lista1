@@ -1,0 +1,7 @@
+\babel@toc {portuguese}{}\relax 
+\contentsline {section}{\numberline {1}Exercício 1}{2}{section.1}%
+\contentsline {section}{\numberline {2}Exercício 2}{2}{section.2}%
+\contentsline {section}{\numberline {3}Exercício 3}{2}{section.3}%
+\contentsline {section}{\numberline {4}Exercício 4}{2}{section.4}%
+\contentsline {section}{\numberline {5}Exercício 5}{2}{section.5}%
+\contentsline {section}{\numberline {6}Exercício 6}{3}{section.6}%
